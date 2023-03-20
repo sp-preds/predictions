@@ -53,6 +53,16 @@ results = run_prophet(model, start_date, end_date)
 st.write("***Historical & Predicted Prices Plot:***")
 fig = plot_plotly(model, results)
 fig.update_layout(xaxis_title='Date', yaxis_title='Stock Price')
+
+# Add legend
+fig.update_layout(legend=dict(
+    orientation="h",
+    yanchor="bottom",
+    y=1.02,
+    xanchor="right",
+    x=1
+))
+
 st.plotly_chart(fig)
 
 # Rename the columns of the results dataframe
